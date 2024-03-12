@@ -1,8 +1,4 @@
 # Waypoints Processor
-![passing](https://img.shields.io/badge/ROSMelodic-passing-green.svg "The project has been test on ROS-Melodic")
-![license](https://img.shields.io/badge/License-Apache2-blue.svg)
-
-![Demo.png](./demo.png)
 
 > To run this project, you need to complete the localization first.  
 > Here is a project [ROS_NDT_Localizer](https://github.com/leofansq/ROS_NDT_Localizer) may help :)
