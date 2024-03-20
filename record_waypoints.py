@@ -29,6 +29,7 @@ def callback(msg):
         record_file.write(wp+"\n")
         record_file.close()
 
+
         # Marker generation
         marker = Marker()
 
@@ -53,9 +54,9 @@ def callback(msg):
         marker.color.g = 0.0
         marker.color.b = 1.0
         marker_pub.publish(marker)
-    
 
-def waypoint_recorder(sub="/current_pose", file_name='./waypoints.txt', interval=1):
+
+def waypoint_recorder(sub="/current_pose", file_name='./waypoint_files/waypoints.txt', interval=1):
     """
     Parameters:
         sub: the geometry_msgs::PoseStamped topic to subcribe
@@ -72,11 +73,11 @@ def waypoint_recorder(sub="/current_pose", file_name='./waypoints.txt', interval
     rospy.init_node('waypoint_recorder', anonymous=True)
     rospy.loginfo("Ready to record the waypoints......")
 
-    marker_pub= rospy.Publisher('/robot_path', Marker, queue_size=10);  
+    marker_pub= rospy.Publisher('/visualization_marker', Marker, queue_size=10);  
     rospy.Subscriber(sub, PoseStamped, callback)
 
     rospy.spin()
 
 if __name__=='__main__':
-    waypoint_recorder(sub="/current_pose", file_name='./waypoints.txt', interval=1)
+    waypoint_recorder(sub="/current_pose", file_name='./waypoint_files/waypoints.txt', interval=1)
 
